@@ -7,16 +7,11 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducers';
 import { SHOW_DEVTOOLS } from './constants';
 
-const middlewares = [
-  applyMiddleware(thunk),
-];
+const composeEnhancers = !SHOW_DEVTOOLS && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-if (SHOW_DEVTOOLS) {
-  middlewares.push(window.devToolsExtension ? window.devToolsExtension() : f => f);
-}
-
-const composedCreateStore = compose.apply(this, middlewares)(createStore);
-const store = composedCreateStore(reducer);
+const store = createStore(reducer, {}, composeEnhancers(
+  applyMiddleware(...[thunk])
+));
 const rootEl = document.getElementById('main');
 const render = () => {
   // See here for explanation of why this require() is needed:
