@@ -1,0 +1,34 @@
+{
+  "leaders": [
+    {
+      "username": "bjacobel",
+      "cloc": 100,
+      "diffcover": 0.95,
+      "mastercov": 0.03
+    },
+    {
+      "username": "thallada",
+      "cloc": 500,
+      "diffcover": 0.92,
+      "mastercov": 0.11
+    },
+    {
+      "username": "jzoldak",
+      "cloc": 150,
+      "diffcover": 0.95,
+      "mastercov": 0.01
+    },
+    {
+      "username": "andy-armstrong",
+      "cloc": 200,
+      "diffcover": 0.99,
+      "mastercov": 0.15
+    },
+    {
+      "username": "alisan617",
+      "cloc": 100,
+      "diffcover": 0.99,
+      "mastercov": 0.07
+    }
+  ]
+}

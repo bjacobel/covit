@@ -1,0 +1,78 @@
+{
+  "author": {
+    "name": "Brian Jacobel",
+    "email": "brian@bjacobel.com",
+    "url": "https://bjacobel.com"
+  },
+  "bugs": {
+    "url": "https://github.com/bjacobel/covit/issues"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.4.1",
+    "aws-sdk": "^2.6.6",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "cloudformer-node": "github:bjacobel/cloudformer-node",
+    "cloudfriend": "^1.1.0",
+    "css-loader": "^0.25.0",
+    "enzyme": "^2.4.1",
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "imports-loader": "^0.6.5",
+    "jest-cli": "^16.0.0",
+    "postcss-font-magician": "^1.4.0",
+    "postcss-import": "^8.1.2",
+    "postcss-loader": "^0.13.0",
+    "precss": "^1.4.0",
+    "react-addons-test-utils": "^15.3.2",
+    "redux-mock-store": "^1.2.1",
+    "style-loader": "^0.13.1",
+    "stylelint": "^7.3.1",
+    "stylelint-config-standard": "^13.0.2",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "engines": {
+    "node": ">= 6"
+  },
+  "homepage": "https://github.com/bjacobel/covit#readme",
+  "jest": {
+    "mocksPattern": "(?:[\\/]|^)mocks[\\/]",
+    "testRegex": "tests/.*/.*-test.js$",
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.css$": "<rootDir>/mocks/stylesheets.js"
+    }
+  },
+  "license": "MIT",
+  "name": "covit",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bjacobel/covit.git"
+  },
+  "scripts": {
+    "awsUtils": "node aws/utils",
+    "getconfig": "node -e \"console.log(JSON.stringify(require('./config')));\" | jq -r ",
+    "lint": "eslint . && stylelint src/stylesheets/*.css",
+    "start": "webpack-dev-server",
+    "test": "jest",
+    "webpack": "webpack -pc"
+  },
+  "version": "0.0.0"
+}
