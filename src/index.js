@@ -7,11 +7,12 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducers';
 import { SHOW_DEVTOOLS } from './constants';
 
-const composeEnhancers = !SHOW_DEVTOOLS && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = (!SHOW_DEVTOOLS && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 const store = createStore(reducer, {}, composeEnhancers(
   applyMiddleware(...[thunk])
 ));
+
 const rootEl = document.getElementById('main');
 const render = () => {
   // See here for explanation of why this require() is needed:
