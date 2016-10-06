@@ -3,18 +3,13 @@ import {
   GET_LEADERS_SUCCEEDED,
 } from '../actions/leaders';
 
-const leaders = (state = {}, action) => {
+const leaders = (state = [], action) => {
   switch (action.type) {
   case GET_LEADERS_SUCCEEDED:
-    return Object.assign({}, state, {
-      content: action.payload.leaders,
-      error: false,
-    });
+    return action.payload.leaders;
   case GET_LEADERS_FAILED:
-    return Object.assign({}, state, {
-      content: null,
-      error: action.payload.error,
-    });
+    console.error(action.payload.error);
+    return state;
   default:
     return state;
   }

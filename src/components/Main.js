@@ -5,7 +5,7 @@ import '../stylesheets/main.css';
 import { getLeadersAsync } from '../actions/leaders';
 
 const mapStateToProps = state => ({
-  title: state.title,
+  leaders: state.leaders,
 });
 
 const mapDispatchToProps = {
@@ -19,10 +19,10 @@ export class MainComponent extends Component {
   }
 
   render() {
-    const { title } = this.props;
+    const { leaders } = this.props;
 
     return (
-      <h1 className="title">{ title.error || title.content }</h1>
+      <h1 className="title">{ JSON.stringify(leaders) }</h1>
     );
   }
 }
