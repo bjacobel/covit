@@ -30,5 +30,70 @@
       "diffcover": 0.99,
       "mastercov": 0.07
     }
+  ],
+  "prs": [
+    {
+      "author": "bjacobel",
+      "head": "4bb88109578226fedf1122305b4afc2747dbab21",
+      "base": "4c0f85b4d9969830ead2314ced2f9761fc580d69",
+      "prid": 13458,
+      "org": "edx",
+      "repo": "edx-platform",
+      "cov": 100
+    },
+    {
+      "author": "bjacobel",
+      "head": "4bb88109578226fedf1122305b4afc2747dbab21",
+      "base": "4c0f85b4d9969830ead2314ced2f9761fc580d69",
+      "prid": 13458,
+      "org": "edx",
+      "repo": "edx-platform",
+      "cov": 35
+    },
+    {
+      "author": "bjacobel",
+      "head": "4bb88109578226fedf1122305b4afc2747dbab21",
+      "base": "4c0f85b4d9969830ead2314ced2f9761fc580d69",
+      "prid": 13458,
+      "org": "edx",
+      "repo": "edx-platform",
+      "cov": 12
+    },
+    {
+      "author": "bjacobel",
+      "head": "4bb88109578226fedf1122305b4afc2747dbab21",
+      "base": "4c0f85b4d9969830ead2314ced2f9761fc580d69",
+      "prid": 13458,
+      "org": "edx",
+      "repo": "edx-platform",
+      "cov": 100
+    },
+    {
+      "author": "bjacobel",
+      "head": "4bb88109578226fedf1122305b4afc2747dbab21",
+      "base": "4c0f85b4d9969830ead2314ced2f9761fc580d69",
+      "prid": 13458,
+      "org": "edx",
+      "repo": "edx-platform",
+      "cov": 65
+    },
+    {
+      "author": "thallada",
+      "head": "4bb88109578226fedf1122305b4afc2747dbab21",
+      "base": "4c0f85b4d9969830ead2314ced2f9761fc580d69",
+      "prid": 13458,
+      "org": "edx",
+      "repo": "edx-platform",
+      "cov": 100
+    },
+    {
+      "author": "bjacobel",
+      "head": "4bb88109578226fedf1122305b4afc2747dbab21",
+      "base": "4c0f85b4d9969830ead2314ced2f9761fc580d69",
+      "prid": 13458,
+      "org": "edx",
+      "repo": "edx-platform",
+      "cov": 50
+    }
   ]
 }
