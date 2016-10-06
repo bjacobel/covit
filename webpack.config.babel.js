@@ -43,13 +43,15 @@ const wpconfig = {
       postcssImport({
         addDependencyTo: wp,
       }),
-      stylelint,
       precss,
       postcssFontMagician,
       autoprefixer({ browsers: ['last 2 versions'] }),
     ];
   },
   resolve: {
+    alias: {
+      'react': path.join(__dirname, 'node_modules', 'react')
+    },
     extensions: ['', '.js', '.json', '.css'],
   },
   plugins: [

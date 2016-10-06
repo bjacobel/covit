@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import '../stylesheets/main.css';
 import { getLeadersAsync } from '../actions/leaders';
+import LeaderTable from './Table';
 
 const mapStateToProps = state => ({
   leaders: state.leaders,
@@ -22,7 +23,10 @@ export class MainComponent extends Component {
     const { leaders } = this.props;
 
     return (
-      <h1 className="title">{ JSON.stringify(leaders) }</h1>
+      <div>
+        <h1 className="title">Leaders</h1>
+        <LeaderTable leaders={ leaders } />
+      </div>
     );
   }
 }
