@@ -1,7 +1,8 @@
 import Firebase from 'firebase';
+import { FIREBASE_URL } from '../constants';
 
 export const init = () => {
   return Firebase.initializeApp({
-    databaseURL: 'https://covit-ddae8.firebaseio.com/',
+    databaseURL: FIREBASE_URL,
   });
 };
