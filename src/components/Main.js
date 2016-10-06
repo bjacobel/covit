@@ -2,20 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import '../stylesheets/main.css';
-import { getTitleAsync } from '../actions/title';
+import { getLeadersAsync } from '../actions/leaders';
 
 const mapStateToProps = state => ({
   title: state.title,
 });
 
 const mapDispatchToProps = {
-  getTitleAsync,
+  getLeadersAsync,
 };
 
 // Separately export the MainComponent so it can be tested without being wrapped by connect()
 export class MainComponent extends Component {
   componentWillMount() {
-    this.props.getTitleAsync();
+    this.props.getLeadersAsync();
   }
 
   render() {

@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import title from './title';
+import leaders from './leaders';
 import loading from './loading';
 
 export default combineReducers({
   loading,
-  title,
+  leaders,
 });

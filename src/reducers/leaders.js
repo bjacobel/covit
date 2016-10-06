@@ -1,16 +1,16 @@
 import {
-  GET_TITLE_FAILED,
-  GET_TITLE_SUCCEEDED,
-} from '../actions/title';
+  GET_LEADERS_FAILED,
+  GET_LEADERS_SUCCEEDED,
+} from '../actions/leaders';
 
-const title = (state = {}, action) => {
+const leaders = (state = {}, action) => {
   switch (action.type) {
-  case GET_TITLE_SUCCEEDED:
+  case GET_LEADERS_SUCCEEDED:
     return Object.assign({}, state, {
-      content: action.payload.title,
+      content: action.payload.leaders,
       error: false,
     });
-  case GET_TITLE_FAILED:
+  case GET_LEADERS_FAILED:
     return Object.assign({}, state, {
       content: null,
       error: action.payload.error,
@@ -20,4 +20,4 @@ const title = (state = {}, action) => {
   }
 };
 
-export default title;
+export default leaders;
