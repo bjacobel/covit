@@ -11,6 +11,7 @@ const columns = [
   {
     name: 'avatar',
     className: 'avatar',
+    type: 'image',
     textAlign: 'left',
     width: 40,
     title: ' ',
@@ -24,13 +25,22 @@ const columns = [
     name: 'author',
     title: 'Contributor',
     className: 'author',
+    type: 'string',
     textAlign: 'left',
   },
   {
     name: 'avg',
     title: 'Average % PR Coverage',
     className: 'avg',
-    textAlign: 'left',
+    type: 'number',
+    textAlign: 'right',
+  },
+  {
+    name: 'count',
+    title: 'Number of PRs',
+    className: 'count',
+    type: 'number',
+    textAlign: 'right',
   },
 ];
 
@@ -53,7 +63,10 @@ export default class LeaderTable extends Component {
   }
 
   onSortChange(info) {
-    this.setState({sortInfo: info.pop()});
+    let newInfo = info.pop();
+    let column = columns.filter((col) => col.name === newInfo.name)[0];
+    newInfo.type = column.type;
+    this.setState({sortInfo: newInfo});
   }
 
   onFilter(column, value, allFilterValues) {
