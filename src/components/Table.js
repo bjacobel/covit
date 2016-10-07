@@ -48,19 +48,27 @@ export default class LeaderTable extends Component {
       let fuse = new Fuse(arr, {keys: ['username']});
       return fuse.search(this.state.filters['username']);
     }
+    return arr;
   }
 
   render() {
     let { leaders } = this.props;
 
-    return (
-      <DataGrid
-        sortInfo={this.state.sortInfo}
-        onSortChange={this.onSortChange}
-        dataSource={this.sort(this.filter(leaders))} idProperty='username' columns={columns}
-        onFilter={this.onFilter}
-        liveFilter={true}
-      />
-    );
+    if (leaders.length > 0) {
+      let filteredLeaders = this.filter(leaders);
+      let sortedLeaders = this.sort(filteredLeaders);
+
+      return (
+        <DataGrid
+          sortInfo={this.state.sortInfo}
+          onSortChange={this.onSortChange}
+          dataSource={sortedLeaders} idProperty='username' columns={columns}
+          onFilter={this.onFilter}
+          liveFilter={true}
+        />
+      );
+    } else {
+      return (<div></div>);
+    }
   }
 }
