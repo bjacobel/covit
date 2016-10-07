@@ -39,7 +39,6 @@
     "file-loader": "^0.9.0",
     "imports-loader": "^0.6.5",
     "jest-cli": "^16.0.0",
-    "postcss-font-magician": "^1.4.0",
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.13.0",
     "precss": "^1.4.0",

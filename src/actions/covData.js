@@ -23,6 +23,17 @@ export const getCovDataFailed = (err) => {
   // return { type: GET_COV_DATA_FAILED, payload: { err }, error: true };
 };
 
+const setupCovDataWatcher = (prsCollection) => {
+  return (dispatch) => {
+    prsCollection.on('child_added', (child) => {
+      dispatch(loadingStarted());
+      // @TODO: check that the PR is unique (ie, unknown) before dispatching this
+      dispatch(getCovDataIncrementalSucceeded(child.val()));
+      dispatch(loadingEnded());
+    });
+  };
+};
+
 export const getCovDataAsync = () => {
   return (dispatch, getState) => {
     dispatch(loadingStarted());
@@ -30,15 +41,11 @@ export const getCovDataAsync = () => {
 
     const { prsCollection, prsPromise } = getPRs(getState().firebaseRef);
 
-    // This will keep us in sync with Firebase
-    prsCollection.on('child_added', (child) => {
-      dispatch(getCovDataIncrementalSucceeded(child.val()));
-    });
-
     return prsPromise
       .then((prs) => {
         dispatch(loadingEnded());
         dispatch(getCovDataSucceeded(prs));
+        dispatch(setupCovDataWatcher(prsCollection));
       })
       .catch((err) => {
         dispatch(loadingEnded());

@@ -40,11 +40,11 @@ const wpconfig = {
   },
   postcss(wp) {
     return [
+      stylelint,
       postcssImport({
         addDependencyTo: wp,
       }),
       precss,
-      postcssFontMagician,
       autoprefixer({ browsers: ['last 2 versions'] }),
     ];
   },

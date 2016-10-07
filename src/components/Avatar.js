@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../stylesheets/avatars.css';
 
 export default class Avatar extends Component {
 
@@ -20,7 +21,7 @@ export default class Avatar extends Component {
   render() {
     let { username } = this.props;
     let { avatarUrl } = this.state;
-    
+
     return (
       <img
         alt={username}

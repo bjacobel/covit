@@ -13,6 +13,7 @@ const leaders = (state = [], action) => {
       prsByAuthor[pr.author] = [pr, ...(prsByAuthor[pr.author] || [])];
     });
 
+    // @TODO... this is O(n ** 2)
     return Object.keys(prsByAuthor)
       .map(author => ({
         author,
@@ -29,15 +30,15 @@ const leaders = (state = [], action) => {
     const currentPRs = state[currentPRsIndex];
     let newPRs;
 
-    if (currentPRs) { // we've seen this author before
+    if (currentPRsIndex >= 0) { // we've seen this author before
       newPRs = Object.assign({}, currentPRs, {
-        prs: currentPRs.prs + 1,
-        avg: ((currentPRs.avg * currentPRs.count) + parseFloat(pr.cov, 10)) / (currentPRs.prs + 1),
+        count: currentPRs.count + 1,
+        avg: ((currentPRs.avg * currentPRs.count) + parseFloat(pr.cov, 10)) / (currentPRs.count + 1),
       });
     } else {
       newPRs = {
         author: pr.author,
-        prs: 1,
+        count: 1,
         avg: parseFloat(pr.cov, 10),
       };
     }

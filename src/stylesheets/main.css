@@ -1,6 +1,22 @@
 @import 'colors';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Slab:700';
 
-.avatar img {
-  width: 32px;
-  height: 32px;
+.title {
+  font-size: 3em;
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  font-family: 'Roboto Slab', serif;
+
+  .blue {
+    color: $blue;
+  }
+
+  .red {
+    color: $red;
+  }
+
+  .gray {
+    color: $gray;
+  }
 }

@@ -1,0 +1,9 @@
+@import 'colors';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+
+.react-datagrid {
+  font-family: 'Open Sans';
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid $lightgray;
+}

@@ -4,6 +4,8 @@ import sorty from 'sorty';
 import Fuse from 'fuse.js';
 import Avatar from './Avatar.js'
 import 'react-datagrid/index.css';
+import '../stylesheets/table.css';
+
 
 const columns = [
   {
@@ -20,11 +22,13 @@ const columns = [
   },
   {
     name: 'author',
+    title: 'Contributor',
     className: 'author',
     textAlign: 'left',
   },
   {
     name: 'avg',
+    title: 'Average % PR Coverage',
     className: 'avg',
     textAlign: 'left',
   },

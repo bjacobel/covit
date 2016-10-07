@@ -24,6 +24,11 @@ export class MainComponent extends Component {
 
     return (
       <div>
+        <h1 className="title">
+          <span className="red">Cov</span>
+          <span className="gray">It</span>
+          <span className="blue">!</span>
+        </h1>
         <LeaderTable leaders={ leaders } />
       </div>
     );
