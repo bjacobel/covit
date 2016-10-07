@@ -7,3 +7,12 @@
   margin: 0 auto;
   border: 1px solid $lightgray;
 }
+
+a {
+  color: $darkblue;
+  text-decoration: none !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}

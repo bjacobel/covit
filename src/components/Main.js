@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import '../stylesheets/main.css';
 import { getCovDataAsync } from '../actions/covData';
 import LeaderTable from './Table';
+import Spinner from './Spinner';
 
 const mapStateToProps = state => ({
   leaders: state.leaders,
+  loading: state.loading,
 });
 
 const mapDispatchToProps = {
@@ -20,7 +22,7 @@ export class MainComponent extends Component {
   }
 
   render() {
-    const { leaders } = this.props;
+    const { leaders, loading } = this.props;
 
     return (
       <div>
@@ -30,6 +32,7 @@ export class MainComponent extends Component {
           <span className="blue">!</span>
         </h1>
         <LeaderTable leaders={ leaders } />
+        <Spinner loading={ loading } />
       </div>
     );
   }
