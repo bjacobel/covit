@@ -20,3 +20,15 @@
     color: $gray;
   }
 }
+
+.z-column-header.z-last {
+  border-right: none !important;
+}
+
+.z-header {
+  padding-right: 0 !important;
+}
+
+.z-content-wrapper-fix {
+  max-width: none !important;
+}
