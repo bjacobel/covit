@@ -27,6 +27,9 @@ const columns = [
     className: 'author',
     type: 'string',
     textAlign: 'left',
+    render: (v) => {
+      return (<a href={`https://github.com/${v}`}>{v}</a>)
+    }
   },
   {
     name: 'avg',
@@ -34,6 +37,7 @@ const columns = [
     className: 'avg',
     type: 'number',
     textAlign: 'right',
+    render: (v) => Number(v).toFixed(3) + '%',
   },
   {
     name: 'count',
