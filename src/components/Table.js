@@ -44,9 +44,12 @@ export default class LeaderTable extends Component {
   }
 
   filter(arr) {
-    if ('username' in this.state.filters) {
-      let fuse = new Fuse(arr, {keys: ['username']});
-      return fuse.search(this.state.filters['username']);
+    for (let filter in this.state.filters) {
+      let val = this.state.filters[filter];
+      if (val !== '') {
+        let fuse = new Fuse(arr, {keys: [filter]});
+        return fuse.search(this.state.filters[filter]);
+      }
     }
     return arr;
   }
