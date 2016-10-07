@@ -10,7 +10,6 @@ export default class Avatar extends Component {
   componentDidMount() {
     let { username } = this.props;
 
-    console.log(username);
     fetch(`https://api.github.com/users/${username}`)
       .then(response => response.json())
       .then(json => {
