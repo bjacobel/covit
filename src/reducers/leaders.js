@@ -9,7 +9,7 @@ const leaders = (state = [], action) => {
   switch (action.type) {
   case GET_COV_DATA_SUCCEEDED:
     const prsByAuthor = {};
-    action.payload.covData.forEach((pr) => {
+    Object.values(action.payload.covData).forEach((pr) => {
       prsByAuthor[pr.author] = [pr, ...(prsByAuthor[pr.author] || [])];
     });
 
@@ -17,18 +17,32 @@ const leaders = (state = [], action) => {
       .map(author => ({
         author,
         count: prsByAuthor[author].length,
-        avg: prsByAuthor[author].reduce((prev, current, index) => ((prev * index) + current.cov) / (index + 1), 0),
+        avg: prsByAuthor[author].reduce((prev, current, index) => {
+          const cov = parseFloat(current.cov, 10);
+          return ((prev * index) + cov) / (index + 1);
+        }, 0),
       }));
 
   case GET_COV_DATA_INCREMENTAL_SUCCEEDED:
     const pr = action.payload.covData;
-    const currentPRs = state[pr.author]; // @TODO: this is an array, not an object
-    const newPRs = Object.assign({}, currentPRs, {
-      prs: currentPRs.prs + 1,
-      avg: ((currentPRs.avg * currentPRs.count) + pr.cov) / (currentPRs.prs + 1),
-    });
+    const currentPRsIndex = state.findIndex(x => x.author === pr.author);
+    const currentPRs = state[currentPRsIndex];
+    let newPRs;
 
-    return Object.assign({}, state, { [state[pr.author]]: newPRs });
+    if (currentPRs) { // we've seen this author before
+      newPRs = Object.assign({}, currentPRs, {
+        prs: currentPRs.prs + 1,
+        avg: ((currentPRs.avg * currentPRs.count) + parseFloat(pr.cov, 10)) / (currentPRs.prs + 1),
+      });
+    } else {
+      newPRs = {
+        author: pr.author,
+        prs: 1,
+        avg: parseFloat(pr.cov, 10),
+      };
+    }
+
+    return [...state.slice(0, currentPRsIndex), newPRs, ...state.slice(currentPRsIndex + 1, state.length)];
   default:
     return state;
   }

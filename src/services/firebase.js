@@ -8,7 +8,7 @@ export const init = () => {
 };
 
 export const getPRs = (firebaseRef) => {  // eslint-disable-line import/prefer-default-export
-  const prsCollection = firebaseRef.database().ref('prs');
+  const prsCollection = firebaseRef.database().ref('coverage');
   return {
     prsCollection,
     prsPromise: prsCollection.once('value').then(value => value.val()),
