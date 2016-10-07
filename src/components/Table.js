@@ -58,7 +58,7 @@ export default class LeaderTable extends Component {
   }
 
   componentWillMount() {
-    this.setState({sortInfo: [{name: 'author', dir: 'asc'}]});
+    this.setState({sortInfo: [{name: 'avg', dir: 'desc'}]});
     this.setState({filters: []});
   }
 
