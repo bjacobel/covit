@@ -33,11 +33,17 @@ const columns = [
   },
   {
     name: 'avg',
-    title: 'Average % PR Coverage',
+    title: 'Average % of PRs Covered',
     className: 'avg',
     type: 'number',
     textAlign: 'right',
-    render: (v) => Number(v).toFixed(3) + '%',
+    render: (v) => {
+      if (v >= 100) {
+        return `${v}%`;
+      } else {
+        return `${Number(v).toFixed(1)}%`;
+      }
+    },
   },
   {
     name: 'count',

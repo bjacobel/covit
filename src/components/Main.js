@@ -31,6 +31,7 @@ export class MainComponent extends Component {
           <span className="gray">It</span>
           <span className="blue">!</span>
         </h1>
+        <h3 className="sub title">The leaderboard for edX test coverage. Shoot for 100%!</h3>
         <LeaderTable leaders={ leaders } />
         <Spinner loading={ loading } />
       </div>
