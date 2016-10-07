@@ -2,9 +2,22 @@ import React, { Component } from 'react';
 import DataGrid from 'react-datagrid';
 import sorty from 'sorty';
 import Fuse from 'fuse.js';
+import Avatar from './Avatar.js'
 import 'react-datagrid/index.css';
 
 const columns = [
+  {
+    name: 'avatar',
+    className: 'avatar',
+    textAlign: 'left',
+    width: 40,
+    title: ' ',
+    render: (_, row) => {
+      return (
+        <Avatar username={row.author} />
+      );
+    }
+  },
   {
     name: 'author',
     className: 'author',
@@ -27,7 +40,7 @@ export default class LeaderTable extends Component {
   }
 
   componentWillMount() {
-    this.setState({sortInfo: [{name: 'username', dir: 'desc'}]});
+    this.setState({sortInfo: [{name: 'author', dir: 'asc'}]});
     this.setState({filters: []});
   }
 
