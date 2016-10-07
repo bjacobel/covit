@@ -24,9 +24,7 @@ export class MainComponent extends Component {
 
     return (
       <div>
-        <h1 className="title">Leaders</h1>
         <LeaderTable leaders={ leaders } />
-        <pre>{ JSON.stringify(leaders, null, 2) }</pre>
       </div>
     );
   }

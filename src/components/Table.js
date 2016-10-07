@@ -6,15 +6,15 @@ import 'react-datagrid/index.css';
 
 const columns = [
   {
-    name: 'username',
-    className: 'username',
-    textAlign: 'left'
+    name: 'author',
+    className: 'author',
+    textAlign: 'left',
   },
   {
-    name: 'cloc',
-    className: 'cloc',
-    textAlign: 'left'
-  }
+    name: 'avg',
+    className: 'avg',
+    textAlign: 'left',
+  },
 ];
 
 export default class LeaderTable extends Component {
@@ -62,7 +62,7 @@ export default class LeaderTable extends Component {
         <DataGrid
           sortInfo={this.state.sortInfo}
           onSortChange={this.onSortChange}
-          dataSource={sortedLeaders} idProperty='username' columns={columns}
+          dataSource={sortedLeaders} idProperty="author" columns={columns}
           onFilter={this.onFilter}
           liveFilter={true}
         />
