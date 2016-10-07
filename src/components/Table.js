@@ -67,10 +67,11 @@ export default class LeaderTable extends Component {
   }
 
   onSortChange(info) {
-    let newInfo = info.pop();
-    let column = columns.filter((col) => col.name === newInfo.name)[0];
-    newInfo.type = column.type;
-    this.setState({sortInfo: newInfo});
+    for (let i = 0, len = info.length; i < len; i++) {
+      let column = columns.filter((col) => col.name === info[i].name)[0];
+      info[i].type = column.type;
+    }
+    this.setState({sortInfo: info});
   }
 
   onFilter(column, value, allFilterValues) {
